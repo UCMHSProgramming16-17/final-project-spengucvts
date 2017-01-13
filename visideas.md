@@ -1,7 +1,14 @@
 Data sets:
 -Pokemon API
 
+Sample data:
+-Name
+-Type
+-Dex number
+-List of stats
+-Frequency rate
+
 Visualizations:
--Bar chart of average stat for each type
--Pie chart of type distributions for 1 gen
+-Scatter plot of 1 stat for each pokemon in 1 gen
+-Pie chart of type frequency distributions for 1 gen
 -Region map with colored boxes for chances of finding 1 species
