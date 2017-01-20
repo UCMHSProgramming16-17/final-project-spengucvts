@@ -44,8 +44,13 @@ file.close()
 
 #give csv file for bokeh to read
 scdata = pd.read_csv("speed.csv")
-scatter=Scatter(scdata,x="dex number",y="speed",xlabel="Pokemon Dex Number", ylabel="Pokemon Base Speed")
-output_file("scatter.html")
 
+#Create a scatter plot using bokeh + import scatter
+#Add a hovering legend that gives the name and dex number and base speed if you hover over a dot
+from bokeh.models import HoverTool
+legend = "hover"
+scatter=Scatter(scdata,title="Gen 4 Pokemon Base Speed", x="dex number",y="speed",xlabel="Pokemon Dex Number", ylabel="Pokemon Base Speed", tools = legend)
+output_file("scatter.html")
 save(scatter)
 print("complete")
+
