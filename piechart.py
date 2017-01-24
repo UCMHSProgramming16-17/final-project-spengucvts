@@ -62,10 +62,11 @@ w = t2["water"]+t1["water"]
 wpercent = total/w
 opercent = 1 - wpercent
 index = ["water", "nonwater"]
+color = ["cyan","gray"]
 
 #Create a pie chart using bokeh
-data = pd.Series([wpercent,opercent], index = list(index), color = ["blue", "gray"])
-p = Donut(data)
+data = pd.Series([wpercent,opercent], index = list(index))
+p = Donut(data, color = list(color), title = "Percentage of Water Types in Gen 4")
 
 output_file("pie.html")
 
