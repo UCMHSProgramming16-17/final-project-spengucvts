@@ -11,12 +11,11 @@ file = open("water.csv","w")
 csv = csv.writer(file,delimiter = ",")
 
 #write to file
-#id, name, weight
+#id, name, primary type, secondary type
 csv.writerow(["id", "name", "type1","type2"])
 
 #Use for-loop to run through every Gen 4 pokemon and return the data
-#gen4 = range(387,494)
-gen4 = range(1,5)
+gen4 = range(387,494)
 for id in gen4:
     
     #Set up URL for API
@@ -52,11 +51,22 @@ file.close()
 #give csv file for bokeh to read
 pdata = pd.read_csv("water.csv")
 
+#Count values for each type
+#Find the number of water types (primary or secondary)
+#Find total number of pokemon in Gen 4
+#Calculate percentage of watertypes
+t1 = pdata['type1'].value_counts().to_dict()
+t2 = pdata["type2"].value_counts().to_dict()
+total = len(pdata.index) - 1
+w = t2["water"]+t1["water"]
+wpercent = total/w
+opercent = 1 - wpercent
+index = ["water", "nonwater"]
 
 #Create a pie chart using bokeh
-p = Donut(pdata, label=['id'], values='type1',
-          text_font_size='8pt', hover_text='medal_count')
+data = pd.Series([wpercent,opercent], index = list(index), color = ["blue", "gray"])
+p = Donut(data)
 
 output_file("pie.html")
 
-show(d)
+save(p)
