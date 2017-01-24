@@ -38,7 +38,7 @@ for id in gen4:
     stats = dex["stats"]
     speed = dex["stats"][0]["base_stat"]
     
-    #write a row containing the dex number/id, name, and weight in that order
+    #write a row containing the dex number/id, name, and speed in that order
     csv.writerow([id, name, speed])
 
 #close file

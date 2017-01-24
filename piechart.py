@@ -19,7 +19,7 @@ gen4 = range(387,494)
 for id in gen4:
     
     #Set up URL for API
-    #get the name and speed for each dex number/id
+    #get the name and type for each dex number/id
     endpoint = "http://pokeapi.co/api/v2/"
     num = "pokemon/"+str(id)+"/"
     url = endpoint+num
@@ -34,11 +34,11 @@ for id in gen4:
     name = dex["name"]
     
     #find the type for each pokemon and set it to a variable
+     #write a row containing the dex number/id, name, and type(s) in that order
     type = dex["types"]
     type1 = dex["types"][0]["type"]["name"]
     
     #If statement is accounting for dual-types
-    #write a row containing the dex number/id, name, and weight in that order
     if len(type) == 2:
         type2 = dex["types"][1]["type"]["name"]
         csv.writerow([id, name, type1, type2])
@@ -59,10 +59,10 @@ t1 = pdata['type1'].value_counts().to_dict()
 t2 = pdata["type2"].value_counts().to_dict()
 total = len(pdata.index) - 1
 w = t2["water"]+t1["water"]
-wpercent = total/w
+wpercent = w/total
 opercent = 1 - wpercent
 index = ["water", "nonwater"]
-color = ["cyan","gray"]
+color = ["gray","cyan"]
 
 #Create a pie chart using bokeh
 data = pd.Series([wpercent,opercent], index = list(index))
