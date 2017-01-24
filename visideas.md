@@ -9,6 +9,6 @@ Sample data:
 -Frequency rate
 
 Visualizations:
--Scatter plot of 1 stat for each pokemon in 1 gen
+-Scatter plot of 1 stat for each pokemon in 1 gen (COMPLETE + Added HoverTool)
 -Pie chart of type frequency distributions for 1 gen
--Region map with colored boxes for chances of finding 1 species
+-Region map with colored boxes for chances of finding 1 species (REMOVE: Too difficult to find region map and enter it into python)

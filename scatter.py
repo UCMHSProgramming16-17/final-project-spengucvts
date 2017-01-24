@@ -28,6 +28,7 @@ for id in gen4:
     
     #send request and check status
     r = requests.get(url, params=payload)
+    print(r)
     
     #Find the name in the dictionary and set it to a variable
     dex = r.json()
