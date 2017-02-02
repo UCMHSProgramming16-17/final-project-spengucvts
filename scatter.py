@@ -12,7 +12,7 @@ file = open("speed.csv","w")
 csv = csv.writer(file,delimiter = ",")
 
 #write to file
-#id, name, weight
+#id, name, speed
 csv.writerow(["dex number", "name", "speed"])
 
 #Use for-loop to run through every Gen 4 pokemon and return the data
